@@ -1,1 +1,11 @@
-
+on
+sonarcloud:
+    stage: test
+    image:
+        name: sonarsource/sonar-scanner-cli:latest
+        entrypoint: [""]
+    script: 
+        - sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.organization=$SONAR_ORGANIZATION_KEY -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+    only:
+        - merge_requests
+        - master
