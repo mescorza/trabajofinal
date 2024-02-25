@@ -30,4 +30,3 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
