@@ -2,6 +2,8 @@ name: Publish Docker image
 on:
   push:
     branches: ['main']
+env:
+  IMAGE_DOCKER: 'mescorza/trabajofinal:latest'
 
   # Trigger analysis when pushing in master or pull requests, and when creating
   # a pull request.
@@ -85,7 +87,7 @@ jobs:
 
       - name: Build Docker
         run: |
-          docker build --tag $images:latest .
+          docker build --tag $IMAGE_DOCKER
 
         #agregar analisis de imagen
         
