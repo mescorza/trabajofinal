@@ -20,9 +20,9 @@ jobs:
       with:
           
           args: >
-             -Dsonar.organization="mescorza"
+             -Dsonar.organization=mescorza
              -Dsonar.projectKey=mescorza_trabajofinal
-             -Dsonar.projectName="trabajofinal"
+             -Dsonar.projectName=trabajofinal
        
    
       env:
