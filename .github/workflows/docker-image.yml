@@ -75,10 +75,31 @@ jobs:
         with:
           images: mescorza/trabajofinal
       
+     # - name: Build and push Docker image
+     #   uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+     #   with:
+     #     context: .
+     #     push: true
+     #     tags: ${{ steps.meta.outputs.tags }}
+     #     labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Build and push Docker image
+        uses: docker/build-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+        #agregar analisis de imagen
+
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          labels: ${{ steps.meta.outputs.labels }}  
+
+      #agregar analisis de DAST
+     
