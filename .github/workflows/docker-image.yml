@@ -85,10 +85,18 @@ jobs:
 
       - name: Build Docker
         run: |
-          docker build --tag mescorza/trabajofinal:latest .
+          docker build --tag $images:latest .
 
         #agregar analisis de imagen
+        
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: '$images:latest'
+          format: 'table'
+          #exit-code: 1 PARAMETRO PARA QUIEBRE DE PIPELINE 
 
+          
      # - name: Build and push Docker image
      #   uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
      #   with:
