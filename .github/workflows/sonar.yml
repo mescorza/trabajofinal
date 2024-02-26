@@ -18,7 +18,7 @@ jobs:
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       with:
-          projectBaseDir: "https://github.com/mescorza/trabajofinal/blob/main/"
+          projectBaseDir: "/mescorza/trabajofinal/blob/main/"
           args: >
              -Dsonar.organization="mescorza"
              -Dsonar.projectKey="trabajofinal"
