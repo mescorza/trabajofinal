@@ -30,9 +30,33 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
 
+
+  dependencytest:
+    needs: sonarcloud
+    runs-on: ubuntu-latest
+    name: depecheck_test
+    steps: 
+
+    - name: Checkout
+      uses: actions/checkout@v2
+        
+    
+    - name: Dependency Check
+      uses: dependency-check/Dependency-Check_Action@1.1.0
+      with:
+        project: 'trabajofinal' 
+        path: '.'
+        format: 'HTML'
+        
+        
+    - name: Upload Test results
+      uses: actions/upload-artifact@master
+      with:
+           name: Depcheck report
+           path: ${{github.workspace}}/reports
  
   push_to_registry:
-    needs: sonarcloud
+    needs: dependencytest
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
