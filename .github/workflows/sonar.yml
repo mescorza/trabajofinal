@@ -21,8 +21,13 @@ jobs:
           
           args: >
              -Dsonar.organization="mescorza"
-             -Dsonar.projectKey=trabajofinal
+             -Dsonar.projectKey="mescorza_trabajofinal"
+             -Dsonar.projectName="trabajofinal"
+              
+
+
        
+   
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
