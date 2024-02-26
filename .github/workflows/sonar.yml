@@ -23,9 +23,7 @@ jobs:
              -Dsonar.organization="mescorza"
              -Dsonar.projectKey=mescorza_trabajofinal
              -Dsonar.projectName="trabajofinal"
-              
-
-
+   
        
    
       env:
