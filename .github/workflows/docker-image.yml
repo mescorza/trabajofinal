@@ -92,7 +92,7 @@ jobs:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: '$images:latest'
+          image-ref: $images:latest
           format: 'table'
           #exit-code: 1 PARAMETRO PARA QUIEBRE DE PIPELINE 
 
