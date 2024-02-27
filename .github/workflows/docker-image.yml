@@ -112,12 +112,14 @@ jobs:
 
       - name: Pull de la Imagen Docker
         run: |
-          docker pull $IMAGE_DOCKER
+          docker pull mescorza/trabajofinal:latest
 
       - name: Despliegue Aplicaion
         run: |
-          docker run -p 8085:8085 --name trabajofinal-deploy -d $IMAGE_DOCKER 
-
+          #docker run -p 8085:8085 --name trabajofinal-deploy -d $IMAGE_DOCKER 
+          #docker run -d --name netflix -p 8081:80 netflix:latest
+          docker run -d --name trabajofinal -p 8081:80 trabajofinal:latest
+          
       - name: Sleep
         run: | 
            sleep 30
