@@ -104,6 +104,25 @@ jobs:
         run: | 
           docker push $IMAGE_DOCKER
 
+  deploy:
+      needs: push_to_registry
+      runs-on: self-hosted
+    
+      steps:
+
+      - name: Pull de la Imagen Docker
+        run: |
+          docker pull $IMAGE_DOCKER
+
+      - name: Despliegue Aplicaion
+        run: |
+          docker run -p 8085:8085 --name trabajofinal-deploy -d $IMAGE_DOCKER 
+
+      - name: Sleep
+        run: | 
+           sleep 30
+
+
      # - name: Build and push Docker image
      #   uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
      #   with:
