@@ -93,12 +93,17 @@ jobs:
         #agregar analisis de imagen
         
       - name: Run Trivy vulnerability scanner
+        id: trivy-pr
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: 'mescorza/trabajofinal:latest'
           format: 'table'
           #exit-code: 1 PARAMETRO PARA QUIEBRE DE PIPELINE 
 
+      - name: Check outputs
+        run: |
+           echo "Pull Request Number - ${{ steps.trivy-pr.outputs.pull-request-number }}"
+           echo "Pull Request URL - ${{ steps.trivy-pr.outputs.pull-request-url }}"
           
      # - name: Build and push Docker image
      #   uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
