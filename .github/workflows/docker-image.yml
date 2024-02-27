@@ -9,8 +9,7 @@ on:
   pull_request:
       types: [opened, synchronize, reopened]
 
-env:
-    IMAGE_DOCKER: 'mescorza/trabajofinal:latest'
+
 jobs:
   sonarcloud:
     runs-on: ubuntu-latest
@@ -87,7 +86,7 @@ jobs:
 
       - name: Build Docker
         run: |
-          docker build --tag mescorza/trabajofinal:latest
+          docker build --tag mescorza/trabajofinal:latest .
 
         #agregar analisis de imagen
         
