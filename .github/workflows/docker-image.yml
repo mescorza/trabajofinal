@@ -1,7 +1,7 @@
 name: Publish Docker image
 on:
   push:
-    branches: ['main']
+    branches: ['desarrollo']
 
   # Trigger analysis when pushing in master or pull requests, and when creating
   # a pull request.
