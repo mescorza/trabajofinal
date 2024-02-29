@@ -17,5 +17,12 @@ spec:
       containers:
       - name: netflix-app
         image: nasi101/netflix:latest
+        resources:
+            limits:
+              memory: 200Mi
+            requests:
+              
+              memory: 200Mi
+
         ports:
         - containerPort: 80
